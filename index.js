@@ -43,12 +43,13 @@ const foodDetails = (mealID) =>{
     // console.log(url);
     fetch(url)
     .then(response => response.json())
-    .then(data => console.log(data.meals[0]))
+    .then(data => displaySingleFood(data.meals[0]))
 }
 
 const displaySingleFood = (food) =>{
-    // console.log(food);
+     // console.log(food);
     const foodDetails = document.getElementById('food-details');
+    foodDetails.textContent="";
     // console.log(foodDetails);
     const singleFoodContainer = document.createElement('div');
     singleFoodContainer.classList.add('card');
@@ -61,3 +62,5 @@ const displaySingleFood = (food) =>{
     `
     foodDetails.appendChild(singleFoodContainer);
 }
+
+//  displaySingleFood();

@@ -11,30 +11,46 @@ const searchFood = () =>{
 
     fetch(url)
     .then(response => response.json())
-    .then(data => displayFood(data.meals))
+    .then(data => displayFood(data.meals, inputValue))
 }
 
-const displayFood = (foods) => {
+const displayFood = (foods, inputValue) => {
+    // console.log(foods);
+    const errorArea=document.getElementById('error-area');
+    // errorArea.textContent="";
+    const span=document.getElementById('span');
+    span.classList.add('danger');
+    span.textContent="";
     // console.log(foods);
     const resultField = document.getElementById('search-result');
-    resultField.textContent ="";
-    foods.forEach(food => {
-        console.log(food);
-        const div = document.createElement('div');
-        div.classList.add('col');
-        // div.textContent="";
-        div.innerHTML =`
-            <div class="card h-100">
-                <img src=${food.strMealThumb} class="card-img-top" alt=${food.strMeal}>
-                <div class="card-body">
-                <h5 class="card-title">${food.strMeal}</h5>
-                <p class="card-text">${food.strInstructions.slice(0,150)+"<strong><i>  See More</i></strong>"}</p>
-                <button onclick="foodDetails(${food.idMeal})" class="btn btn-outline-dark w-100">See More Details</button>
-                </div>
-            </div>
+        resultField.textContent ="";
+    if(foods==null){
+        span.innerText=`
+            The Food ${inputValue} is not Found
         `
-        resultField.appendChild(div)
+        errorArea.appendChild(span);
+    }else{
+        
+        foods.forEach(food => {
+            console.log(food);
+            const div = document.createElement('div');
+            div.classList.add('col');
+            // div.textContent="";
+            div.innerHTML =`
+                <div class="card h-100">
+                    <img src=${food.strMealThumb} class="card-img-top" alt=${food.strMeal}>
+                    <div class="card-body">
+                    <h5 class="card-title">${food.strMeal}</h5>
+                    <p class="card-text">${food.strInstructions.slice(0,150)+"<strong><i>  See More</i></strong>"}</p>
+                    <button onclick="foodDetails(${food.idMeal})" class="btn btn-outline-dark w-100">See More Details</button>
+                    </div>
+                </div>
+            `
+            resultField.appendChild(div)
     })
+
+    }
+    
 }
 
 

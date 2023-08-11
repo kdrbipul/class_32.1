@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!-- Bootstrap Link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container mt-3">
+        <!-- <h1 class="bg-success">Hello World</h1> -->
+        <h1 class="text-center pb-2">Search Your Favorite Food</h1>
+        <div class="w-50 mx-auto d-flex">
+            <input class="form-control me-2" type="text" name="" id="searchInput" placeholder="search food"/>
+            <button onclick="searchFood()" class="btn btn-dark">Search</button>
+        </div>
+        <div id="food-details" class="w-50 mx-auto h-50">
+          <!-- <div class="card h-100">
+            <img src=${food.strMealThumb} class="card-img-top" alt=${food.strMeal}>
+            <div class="card-body">
+            <h5 class="card-title">${food.strMeal}</h5>
+            <p class="card-text">${food.strInstructions.slice(0,150)+"<strong><i>  See More</i></strong>"}</p>
+            <button class="btn btn-outline-dark w-100">See More Details</button>
+            </div>
+          </div> -->
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 py-3" id="search-result"> 
+        </div>
+  </div>
+    
+
+
+
+
+
+
+
+
+    <!-- Bootstrap js link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
